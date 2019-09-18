@@ -7,7 +7,6 @@ const mysql = require('mysql');
 const config = require('../config/database').db;
 
 // teste de conexao 
-
 // connection.connect(function(err){
 //   if(err) return console.log('Houve um erro : ', err);
 //   console.log('Conectado ao DATABASE MYSQL');
