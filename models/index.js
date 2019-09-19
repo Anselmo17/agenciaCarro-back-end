@@ -2,7 +2,6 @@ const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
 const logger = require('../helpers/logger');
-const mysql = require('mysql');
 
 const config = require('../config/database').db;
 

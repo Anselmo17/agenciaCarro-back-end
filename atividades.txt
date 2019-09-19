@@ -1,8 +1,0 @@
-
-
-
-- subir deploy de back- end (agencia de carros)
-- criar o botão de deleção dos dados ok 
-- criar o botão de atualizar os dados
-- açao para os botoes de deletar e atualizar 
-- 
