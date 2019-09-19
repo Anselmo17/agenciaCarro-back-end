@@ -3,8 +3,7 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const logger = require('../helpers/logger');
 
-const config = require('../config/database').db;
-
+const config = require('../config/index').database.db;
 
 logger.debug('Config Database Mysql : ', {
   host: config.host,

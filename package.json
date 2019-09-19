@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "local": "node --debug server.js"
+    "start:local": "set NODE_ENV=local&&nodemon server.js"
   },
   "author": "Anselmo",
   "license": "ISC",
