@@ -2,10 +2,11 @@
 const logger = require('../helpers/logger');
 const cors = require('cors');
 const express = require('express');
+
 //iniciando o modo do express
 const app = module.exports = express();
 const bodyParser = require('body-parser');
-const port = 8082;
+const port = process.env.PORT || 8082;
 
 //iniciando a porta do servidor
 app.listen(port, () => {
@@ -13,7 +14,7 @@ app.listen(port, () => {
 });
 
 //configurar o body  para aceitar os dados
-app.use(bodyParser.urlencoded({ extendend: false }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 

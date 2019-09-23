@@ -2,12 +2,10 @@ const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
 const logger = require('../helpers/logger');
-const mysql = require('mysql');
 
-const config = require('../config/database').db;
+const config = require('../config/index').database.db;
 
-
-logger.debug('Config Database Mysql : ', {
+logger.warn('Config Database Postgres : ', {
   host: config.host,
   user: config.username,
   database: config.database,
@@ -18,10 +16,10 @@ const connect = new Sequelize(config.database, config.username, config.password,
 // teste de conexao ao banco de dados 
 connect.authenticate()
   .then(function () {
-    logger.debug('Conectado com sucesso ao Mysql !!!')
+    logger.debug('Conectado com sucesso ao Postgres')
   })
   .catch(function (){
-    logger.debug('Não foi possível conectar ao banco de dados Mysql...')
+    logger.debug('Não foi possível conectar ao banco de dados Postgres')
   });
 
 

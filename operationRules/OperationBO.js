@@ -40,23 +40,28 @@ class OperationBO {
   async consult(callback) {
     logger.log('OperationBO.consult');
 
-    // faz a busca na tabela e pega o dominio da marca do carro
-    const res = await Carro.findAll(
-      {
-        raw: true,
-        attributes: [
-          'anoCarro', 'created', 'idCarro',
-          'idMarca', 'marcaDescricao', 'placa'
-        ],
-        include: [{
-          model: MarcaCarro,
-          attributes: ['marca'],
-          as: 'index'
-        }]
-      }
-    );
-    //retorno dos dados 
-    return callback(res);
+    try {
+      // faz a busca na tabela e pega o dominio da marca do carro
+      const res = await Carro.findAll(
+        {
+          raw: true,
+          attributes: [
+            'anoCarro', 'created', 'idCarro',
+            'idMarca', 'marcaDescricao', 'placa'
+          ],
+          include: [{
+            model: MarcaCarro,
+            attributes: ['marca'],
+            as: 'index'
+          }]
+        }
+      );
+      //retorno dos dados 
+      return callback(res);
+    } catch (e) {
+      console.log('Houve um erro', e)
+    }
+
   }
 
   // busca por id 
