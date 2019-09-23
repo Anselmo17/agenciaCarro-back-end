@@ -12,7 +12,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
       createdAt: false,
       updatedAt: false,
-      tableName: 'marca_carro',
+      tableName: 'domain_marca_carro',
+      schema: 'agencia',
     });
 
   return MarcaCarro;

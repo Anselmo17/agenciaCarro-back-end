@@ -29,11 +29,11 @@ module.exports = (sequelize, DataTypes) => {
       createdAt: false,
       updatedAt: false,
       tableName: 'carro',
-      //schema: 'agencia',
+      schema: 'agencia',
     });
   Carro.associate = (models) => {
     Carro.belongsTo(models.MarcaCarro, {
-      foreignKey: 'idMarca',
+      foreignKey: 'id_marca',
       as: 'index'
     });
   };
