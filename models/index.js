@@ -5,7 +5,7 @@ const logger = require('../helpers/logger');
 
 const config = require('../config/index').database.db;
 
-logger.debug('Config Database Mysql : ', {
+logger.warn('Config Database Mysql : ', {
   host: config.host,
   user: config.username,
   database: config.database,
