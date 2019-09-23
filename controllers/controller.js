@@ -11,7 +11,7 @@ const helper = new Helpers();
 
 //adiciona itens
 exports.adicionar = async function (data, callback) {
-  logger.debug('controller.adicionar')
+  logger.warn('controller.adicionar')
 
   const resData = await helper.validaData(data);
 
@@ -29,7 +29,7 @@ exports.adicionar = async function (data, callback) {
 
 //consulta os dados 
 exports.consult = function (data, callback) {
-  logger.debug('controller.consult')
+  logger.warn('controller.consult')
   op.consult(data, function (resp) {
     callback(resp)
   })
@@ -37,7 +37,7 @@ exports.consult = function (data, callback) {
 
 // consult by id 
 exports.consultId = async (id) => {
-  logger.debug('controller.consultId')
+  logger.warn('controller.consultId')
   const findId = parseInt(id);
   const response = await op.consultId(findId);
   return response;
@@ -45,7 +45,7 @@ exports.consultId = async (id) => {
 
 //update
 exports.update = function (id, body, callback) {
-  logger.debug('controller.update')
+  logger.warn('controller.update')
   op.update(id, body, function (resp) {
     callback(resp)
   })
@@ -53,7 +53,7 @@ exports.update = function (id, body, callback) {
 
 //delete
 exports.delete = function (id, callback) {
-  logger.debug('controller.delete')
+  logger.warn('controller.delete')
   op.delete(id, function (resp) {
     callback(resp)
   })
@@ -62,7 +62,7 @@ exports.delete = function (id, callback) {
 
 //Pega os dados a serem exportados  
 exports.exports = function (callback) {
-  logger.debug('controller.exports')
+  logger.warn('controller.exports')
   exportExcel.export(callback, function (resp) {
     callback(resp)
   })

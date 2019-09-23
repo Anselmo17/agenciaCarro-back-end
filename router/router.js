@@ -1,10 +1,11 @@
 let app = require('../config/appConfig');
 let controller = require('../controllers/controller');
 const http = require('../helpers/enum/statusHttp');
+const logger = require('../helpers/logger');
 
 //metodo de cadatrar os carros 
 app.post('/carros/cadastrar', (req, res) => {
-
+  logger.warn('router.adicionar');
   // dados da requisição
   const { modeloCarro, anoCarro, marcaCarro, placa } = req.body;
 
@@ -30,7 +31,7 @@ app.post('/carros/cadastrar', (req, res) => {
 
 //pegando a lista de carros 
 app.get('/carros', (req, res) => {
-
+  logger.warn('router.consult');
   controller.consult((resp) => {
     res.status(http.OK).json(resp);
   });
@@ -38,7 +39,7 @@ app.get('/carros', (req, res) => {
 
 // busca por id 
 app.get('/carros/:id', (req, res) => {
-
+  logger.warn('router.consultId');
   const id = req.params.id;
 
   controller.consultId(id).then((resp) => {
@@ -48,7 +49,7 @@ app.get('/carros/:id', (req, res) => {
 
 // atualizar por id 
 app.put('/carros/update/:id', (req, res) => {
-
+  logger.warn('router.update');
   const id = req.params.id;
   const body = req.body;
 
@@ -60,7 +61,7 @@ app.put('/carros/update/:id', (req, res) => {
 
 //deletar por id 
 app.delete('/carros/delete/:id', (req, res) => {
-
+  logger.warn('router.delete');
   const id = req.params.id;
 
   controller.delete(id, (resp) => {
@@ -74,6 +75,8 @@ app.delete('/carros/delete/:id', (req, res) => {
 
 //exportar excel 
 app.get('/exports', (req, res) => {
+  logger.warn('router.exports');
+  
   controller.exports((resp) => {
 
     // cria o arquivo excel
