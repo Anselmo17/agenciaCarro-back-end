@@ -10,7 +10,7 @@ const port = process.env.PORT || 8082;
 
 //iniciando a porta do servidor
 app.listen(port, () => {
-  logger.debug(`Servidor rodando na porta http://localhost:${port}`)
+  logger.warn(`Servidor rodando na porta http://localhost:${port}`)
 });
 
 //configurar o body  para aceitar os dados

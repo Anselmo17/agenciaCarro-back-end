@@ -38,7 +38,7 @@ class OperationBO {
 
   // busca os dados no banco 
   async consult(callback) {
-    logger.log('OperationBO.consult');
+    logger.warn('OperationBO.consult');
 
     try {
       // faz a busca na tabela e pega o dominio da marca do carro
@@ -66,7 +66,7 @@ class OperationBO {
 
   // busca por id 
   async consultId(id) {
-    logger.log('OperationBO.consultId');
+    logger.warn('OperationBO.consultId');
     const response = await Carro.findOne({
       where: {
         idCarro: id
@@ -85,13 +85,11 @@ class OperationBO {
     connection.query(sql, function (error, results, fields) {
 
       if (error) {
-        return console.log(error)
+        return logger.error(error)
       } else {
         callback({ results: 'Dados atualizados com sucesso!!!' })
         //nao fechar conn.end();
       }
-
-
     })
 
   }
