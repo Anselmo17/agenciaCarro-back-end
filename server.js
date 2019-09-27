@@ -1,6 +1,3 @@
-// instaciando o mysql
-const mysql = require('mysql');
-
 //chamando o metodo appConfig
 var app = require('./config/appConfig');
 

@@ -12,7 +12,7 @@ class OperationBO {
 
   //adicionar dados ao banco
   async adicionar(data, callback) {
-    logger.debug('OperationBO.adicionar')
+    logger.warn('OperationBO.adicionar')
 
     const format = new Date();
 
@@ -31,14 +31,14 @@ class OperationBO {
     });
 
     return callback({
-      Message: 'Created Success',
+      message: 'Created Success',
       data: response
     });
   }
 
   // busca os dados no banco 
   async consult(callback) {
-    logger.log('OperationBO.consult');
+    logger.warn('OperationBO.consult');
 
     try {
       // faz a busca na tabela e pega o dominio da marca do carro
@@ -59,14 +59,14 @@ class OperationBO {
       //retorno dos dados 
       return callback(res);
     } catch (e) {
-      console.log('Houve um erro', e)
+      logger.error('Houve um erro', e)
     }
 
   }
 
   // busca por id 
   async consultId(id) {
-    logger.log('OperationBO.consultId');
+    logger.warn('OperationBO.consultId');
     const response = await Carro.findOne({
       where: {
         idCarro: id
@@ -77,7 +77,7 @@ class OperationBO {
 
   //update
   async update(id, body, callback) {
-    logger.debug('OperationBO.update');
+    logger.warn('OperationBO.update');
 
     const sql = `UPDATE agencia.agencia
   SET carro='${body.carro}', modelo='${body.modelo}', ano_carro=${body.ano_carro} WHERE id=${id};`
@@ -85,20 +85,18 @@ class OperationBO {
     connection.query(sql, function (error, results, fields) {
 
       if (error) {
-        return console.log(error)
+        return logger.error(error)
       } else {
         callback({ results: 'Dados atualizados com sucesso!!!' })
         //nao fechar conn.end();
       }
-
-
     })
 
   }
 
   //deletar por id 
   async delete(id, callback) {
-    logger.debug('OperationBO.delete');
+    logger.warn('OperationBO.delete');
     const result = await Carro.destroy({
       where: {
         idCarro: id
@@ -110,3 +108,5 @@ class OperationBO {
 }
 
 module.exports = OperationBO;
+
+

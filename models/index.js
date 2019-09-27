@@ -16,10 +16,10 @@ const connect = new Sequelize(config.database, config.username, config.password,
 // teste de conexao ao banco de dados 
 connect.authenticate()
   .then(function () {
-    logger.debug('Conectado com sucesso ao Postgres')
+    logger.warn('Conectado com sucesso ao Postgres')
   })
   .catch(function (){
-    logger.debug('Não foi possível conectar ao banco de dados Postgres')
+    logger.warn('Não foi possível conectar ao banco de dados Postgres')
   });
 
 
