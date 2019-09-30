@@ -1,7 +1,7 @@
 
 module.exports = {
   db: {
-    //operatorsAliases: false,
+    operatorsAliases: false,
     dialect: 'postgres',
     name: 'agencia',
     host: process.env.HOST,
