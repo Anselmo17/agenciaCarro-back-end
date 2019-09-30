@@ -11,15 +11,17 @@ logger.warn('Config Database Postgres : ', {
   database: config.database,
 });
 
-const connect = new Sequelize(config.database, config.username, config.password, config);
+const connect = new Sequelize(config.database, config.username, config.password, { ...config });
 
 // teste de conexao ao banco de dados 
 connect.authenticate()
   .then(function () {
-    logger.warn('Conectado com sucesso ao Postgres')
+    logger.warn('Enviroment:', process.env.NODE_ENV, '\n',
+      'Conectado com sucesso ao Postgres')
   })
-  .catch(function (e){
-    logger.warn('Não foi possível conectar ao banco de dados Postgres : ', e.message)
+  .catch(function (e) {
+    logger.warn('Enviroment:', process.env.NODE_ENV, '\n',
+      'Não foi possível conectar ao banco de dados Postgres : ', e.message)
   });
 
 
