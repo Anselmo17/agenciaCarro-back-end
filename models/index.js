@@ -18,8 +18,8 @@ connect.authenticate()
   .then(function () {
     logger.warn('Conectado com sucesso ao Postgres')
   })
-  .catch(function (){
-    logger.warn('Não foi possível conectar ao banco de dados Postgres')
+  .catch(function (e){
+    logger.warn('Não foi possível conectar ao banco de dados Postgres : ', e)
   });
 
 
