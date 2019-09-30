@@ -59,7 +59,7 @@ class OperationBO {
       //retorno dos dados 
       return callback(res);
     } catch (e) {
-      logger.error('Houve um erro', e)
+      logger.error('Houve um erro', e.message)
     }
 
   }
