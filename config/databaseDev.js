@@ -7,7 +7,7 @@ module.exports = {
     username: process.env.USER || 'postgres',
     password: process.env.PASSWORD || 'root',
     database: process.env.DATABASE || 'agencia_carros',
-    port: process.env.PORT || 5432,
+    port: process.env.PORT_DB || 5432,
     pool: {
       min: process.env.MIN_POOL || 5,
       max: process.env.MAX_POOL || 150,

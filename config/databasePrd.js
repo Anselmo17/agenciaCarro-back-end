@@ -7,13 +7,13 @@ module.exports = {
     username: process.env.USER,
     password: process.env.PASSWORD,
     database: process.env.DATABASE,
-    port: process.env.PORT || 5432,
+    port: process.env.PORT_DB || 5432,
     pool: {
       min: process.env.MIN_POOL || 5,
       max: process.env.MAX_POOL || 150,
       idle: 10000
     },
-    dialectOptions: { 
+    dialectOptions: {
       ssl: true
     },
     logging: false,
