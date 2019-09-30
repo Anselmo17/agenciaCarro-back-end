@@ -8,11 +8,13 @@ module.exports = {
     password: process.env.PASSWORD || 'root',
     database: process.env.DATABASE || 'agencia_carros',
     port: process.env.PORT || 5432,
-    ssl: true,
     pool: {
       min: process.env.MIN_POOL || 5,
       max: process.env.MAX_POOL || 150,
       idle: 10000
+    },
+    dialectOptions: {
+      ssl: false
     },
     logging: false,
     timezone: 'America/Sao_Paulo'
