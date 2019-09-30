@@ -13,7 +13,7 @@ module.exports = {
       max: process.env.MAX_POOL || 150,
       idle: 10000
     },
-    dialectOptions: {
+    dialectOptions: { 
       ssl: true
     },
     logging: false,
